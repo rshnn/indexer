@@ -4,5 +4,7 @@ Work in progress.
 
 
 #Current use:
->$ make 
+>
+$ make 
 $ ./index outputfiles_doesntworkyet testing 
+>
