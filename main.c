@@ -95,12 +95,8 @@ int exploreDirectories(char* inputname)
 			strcat(next, entry->d_name);
 
 			/* Recursive call */
-			printf("%s\n",next);
-
+			printf("Current directory:\t%s\n",next);
 			exploreDirectories(next);
-
-			//printf("\t%s\n", entry->d_name);
-
 			free(next);
 		}
 		closedir(directory);
@@ -108,7 +104,7 @@ int exploreDirectories(char* inputname)
 	}
 	/* Current recursive iteration is a file (Base case) */
 	else{
-		printf(">>Exploring file: %s \n", inputname);
+		printf(">>Exploring file:\t%s \n", inputname);
 		FILE *file = (FILE *)fileptr;
 		parseFile(file);
 		printf("\n\n");
