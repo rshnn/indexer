@@ -26,6 +26,22 @@ void argCheck(int argc, char** argv){
 }
 
 
+int parseFile(FILE* file){
+
+	TokenizerT* tk 	= TKCreate(file);
+
+	/* Currently only prints out file contents.  To be changed later */
+	char* token;
+	while((token = TKGetNextToken(tk)) != 0){
+		printf("%s ",token);
+	}
+
+	TKDestroy(tk);
+
+	return 0;
+}
+
+
 /* 
 	TESTING FUNCTIONALITY OF TOKENIZER.
 	SHOULD SPIT OUT INPUT FILE'S ALPHANUM CHARS IN LOWERCASE 
@@ -36,15 +52,8 @@ int main(int argc, char **argv){
 	argCheck(argc, argv);
 
 	FILE *input_file 		= fopen(argv[2],"r");
-	TokenizerT* tokenizer 	= TKCreate(input_file);
-
-
-	char* tok;
-	while((tok = TKGetNextToken(tokenizer)) != 0){
-		printf("%s ",tok);
-	}
-
-	TKDestroy(tokenizer);
+	
+	parseFile(input_file);
 
 
 	return 0;
