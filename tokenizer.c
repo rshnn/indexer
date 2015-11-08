@@ -3,6 +3,7 @@
 #include <string.h>
 #include <ctype.h>
 
+
 #define TOKENSIZE 1000
 
 /*
@@ -11,7 +12,6 @@
 typedef struct {
 	FILE *file;
 } TokenizerT;
-
 
 
 /*
@@ -85,9 +85,11 @@ char *TKGetNextToken( TokenizerT * tk ) {
 		return NULL;
 	}
 
+
 	/* Preparing output string from buffer. */
 	buffer[index]	= '\0';
 	buffer  		= (char * )realloc(buffer, sizeof(char)*(index+1));
+
 
 	return buffer;
 }
