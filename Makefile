@@ -3,10 +3,10 @@ CFLAGS = -Wall -Werror -g
 
 all: index 
 
-index: main.o tokenizer.o libsl.a
+index: indexer.o tokenizer.o libsl.a
 	$(CC) $(CFLAGS) -o index $^
 
-main.o:	main.c
+indexer.o:	indexer.c
 	$(CC) $(CFLAGS) -c $^
 
 tokenizer.o: tokenizer.c

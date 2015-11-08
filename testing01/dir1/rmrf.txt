@@ -1,0 +1,3 @@
+so... don't ever put `rm -rf theMainDirectory/ in your test file
+
+i have permission to delete like 10's of TB of work

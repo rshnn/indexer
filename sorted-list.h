@@ -74,11 +74,13 @@ void * SLGetItem( SortedListIteratorPtr iter );
 void * SLNextItem(SortedListIteratorPtr iter);
 
 
-/* New additions */
+/* New additions for Indexer*/
 
 void * SLSearch(SortedListPtr list, void *Obj, CompareFuncT);
 
 int SLIsLastItem(SortedListIteratorPtr iter);
+
+int SLisEmpty(SortedListPtr list);
 
 
 

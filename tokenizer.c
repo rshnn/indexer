@@ -61,7 +61,16 @@ char *TKGetNextToken( TokenizerT * tk ) {
 	while(curr != EOF && index < TOKENSIZE){
 
 		curr 	= tolower(curr);
-		if(isalnum(curr)){
+
+		if(index == 0 && isalpha(curr)){
+			buffer[index] 	= curr;
+			index++;
+			curr	= fgetc(tk->file);
+			continue;
+
+		}
+
+		if(index!=0 && isalnum(curr)){
 			buffer[index]	 = curr;
 			index++;
 		}else{

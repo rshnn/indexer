@@ -247,10 +247,6 @@ void * SLSearch(SortedListPtr list, void *Obj, CompareFuncT cf)
 	}
 	return temp->data;
 
-	// if(success)	
-	// 	return ptr->data;
-	// else 
-	// 	return NULL;
 
 }
 
@@ -273,6 +269,13 @@ int SLIsLastItem(SortedListIteratorPtr iter)
 
 
 
+int SLisEmpty(SortedListPtr list)
+{
+	if(list->head->next == list->head){
+		return 1;
+	}
+	return 0;
+}
 
 
 
