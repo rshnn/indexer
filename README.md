@@ -5,11 +5,7 @@
 	OVERVIEW OF PROGRAM USE
 	Work in progress.
 	
-- - - - 
-
 __Will not properly run on Windows machines due to sys/types.h__
-
-- - - - 
 
 
 # Current Use
@@ -46,37 +42,52 @@ Once the data structure is created, a simple function, writeFile(), will output 
 
 Therefore, as the directory navigation and file parsing is as efficient as possible ( O(n)  where n is the number of files to explore), the runtime of my program will largely depend on  the number of unique tokens and the number of files.  O(tf). 
   
-TESTCASE ANALYSIS 
-  To the left is a tree representation of my testcases.  Each of the  high  level  directories  is  denoted  by  testing0x.    Each  attempts  to  challenge  my  programs  functioanlity  in  a  slightly  different  way.   
+
+## TESTCASE ANALYSIS 
+
+![screenshot](images/testDirs.png)
+
+To the left is a tree representation of my testcases.  Each of the  high  level  directories  is  denoted  by  testing0x.    Each  attempts  to  challenge  my  programs  functioanlity  in  a  slightly  different  way.   
  
  
  
-TESTCASE 1: Directory sweeping 
-   Testing01 contains 2 directories and 1 nested subdirectory  within  the  first.    There  are  text  files  at  all  levels  of  navigation  (high level, dir1/, dir1/dir2/, and dir3/ ).  This test case is largely  meant  to  test  my  programs  ability  to  recursively  sweep  directories and visit all files at all levels.   
+## TESTCASE 1: Directory sweeping 
+
+Testing01 contains 2 directories and 1 nested subdirectory  within  the  first.    There  are  text  files  at  all  levels  of  navigation  (high level, dir1/, dir1/dir2/, and dir3/ ).  This test case is largely  meant  to  test  my  programs  ability  to  recursively  sweep  directories and visit all files at all levels.   
  
  
  
-TESTCASE 2: Frequency counting  
-  Testing02 contains just two text files, each of which contain  some  duplicate  words.    This  test  attempts  to  test  the  sorting  ability of the nested sortedNlists.  The image below shows the 
-  output  file  from  this  test.    Tokens  are  properly  organized  alphabetically.    RecordLists  are  properly  organized  by  frequency  and  then  alphabetically  by  file  path.  This is further tested by the  following test cases as well.    
- 
-  
-TESTCASE 3: Empty nested directories 
-  This test case exercises the simple case in which there are no files with any tokens.  The  directories are properly swept.  When the TokenList structure is empty at time of file writing,  the program will safety exit with a short prompt claiming that there are no tokens to index. 
- 
-TESTCASE 4: Empty text files   
-  This test case is similar to test case 3.  The high level file contains empty text files.  The  program will follow an execution, just as test case 3, and exit normally with a prompt saying  there are no tokens to index. 
- 
-TESTCASE 5: Unfamiliar file types  
-  The high level directory contains one normal text file, name heyya.txt.  Additionally, it  contains a directory of two executable files.  The program will attempt to parse through these  files normally and detect any string of valid tokens.  The resulting output text file is as expected.    
-TESTCASE 6: Regular large test  
-  This test case is a large directory with many text files.  This test is meant to test the full  functionality of the program.  The following two images show the proper sorting of recordLists  by first frequency and then alphabetically by file name.   
+## TESTCASE 2: Frequency counting  
+
+![screenshot](images/token_order.png)
+
+Testing02 contains just two text files, each of which contain  some  duplicate  words. This  test  attempts  to  test  the  sorting  ability of the nested sortedNlists.  The image below shows the output  file  from  this  test. Tokens  are  properly  organized  alphabetically.    RecordLists  are  properly  organized  by  frequency  and  then  alphabetically  by  file  path.  This is further tested by the  following test cases as well.    
  
   
-   
+## TESTCASE 3: Empty nested directories 
+
+This test case exercises the simple case in which there are no files with any tokens.  The  directories are properly swept.  When the TokenList structure is empty at time of file writing,  the program will safety exit with a short prompt claiming that there are no tokens to index. 
  
+## TESTCASE 4: Empty text files   
+
+This test case is similar to test case 3.  The high level file contains empty text files.  The  program will follow an execution, just as test case 3, and exit normally with a prompt saying  there are no tokens to index. 
  
- TESTCASE 7: Input is a text file   
-  Lastly, this test case shows proper execution of my program when the input is a text file.   My program properly recognizes that the input is not a directory and will execute normally. 
- 
-  $ ./index output.txt svu.txt 
+## TESTCASE 5: Unfamiliar file types  
+
+The high level directory contains one normal text file, name heyya.txt.  Additionally, it  contains a directory of two executable files.  The program will attempt to parse through these  files normally and detect any string of valid tokens.  The resulting output text file is as expected.    
+
+## TESTCASE 6: Regular large test  
+
+This test case is a large directory with many text files.  This test is meant to test the full  functionality of the program.  The following two images show the proper sorting of recordLists  by first frequency and then alphabetically by file name.   
+
+![screenshot](images/freq_order.png)
+
+![screenshot](images/alpha_order.png)
+
+## TESTCASE 7: Input is a text file   
+
+Lastly, this test case shows proper execution of my program when the input is a text file.   My program properly recognizes that the input is not a directory and will execute normally. 
+
+ ```sh
+./index output.txt svu.txt 
+```
