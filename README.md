@@ -1,16 +1,18 @@
 # indexer
 
-Roshan Patel  198:211 SYSTEMS PROGRAMMING 
-PA4:  INDEXER – readme.pdf   
-OVERVIEW OF PROGRAM USE 
+	Roshan Patel  198:211 SYSTEMS PROGRAMMING
+	PA4:  INDEXER – readme.pdf
+	OVERVIEW OF PROGRAM USE
+	Work in progress.
+	
+- - - - 
 
-> Work in progress.
+__Will not properly run on Windows machines due to sys/types.h__
 
-Note:  Will not properly run on Windows machines due to sys/types.h
+- - - - 
 
 
 # Current Use
-
 
 ```sh
 make 
@@ -26,13 +28,15 @@ make
 ```
 
 ## DATA STRUCTURES 
- 
+
+![screenshot](images/structures.png)
+
 The highest level data structure in use to store (token, file) tuples is the `TokenList`. This is a global `sortedNlist` structure of Token structs. Each Token struct itself, contains a sortedNlist structure within it.  This is a sortedNlist of fileRecord structs that correspond to the files which contain the token. This nested design lends nicely to minimizing the memory requirements of storing tokens along with their filenames and frequencies. Additionally, management of the ordering of each of the tokens, frequency, and filenames with  respect to one another can be entirely handled by the sortedNlist objects. Comparator and  destroyer functions for Token and fileRecord structs are implemented within `indexer.c`.    
  
 
 ## RUNTIME ANALYSIS 
 
-  Runtime is considered with respect to the size of the input.  This is the number of files  that need to be parsed for tokens. 
+Runtime is considered with respect to the size of the input.  This is the number of files  that need to be parsed for tokens. 
   Sweeping through directories is done using the recursive exploreDirectories()  function.  It will be called once for each directory in the input.  For each file it locates within a  directory, it calls parseFile().   
   The parseFile() function instantiates a tokenizer object.  The tokenizer object will  fetch tokens from the input file and store them into the aforementioned data structures by  calling the helper function, processToken().  The tokenizer struct fetches tokens from the  input until EOF is reached.  Then the tokenizer is destroyed and the call stack returns to  exploreDirectories().   
   The processToken() function will run two comparisons  to check if the input tuple  (token, filename) already exists within the data structures.  It must first check the TokenList  sortedNlist to see if a Token struct has already been instantiated for the input.  If so, it will  check the fileRecord sortedNlist of that token to see if this file has already had an instance of  this token.  If so, it will increment the frequency and resort.  The runtime of this function will  depend largely on the current size of the data structures.  Therefore, this runtime will scale with  the number of unique tokens and the number of files in the input.  The runtime is O(tf) where  t is the number of unique tokens and f is the number of files.  Worst case, there are unique  tokens in every file. 
