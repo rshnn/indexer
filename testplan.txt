@@ -1,0 +1,58 @@
+Roshan Patel
+Systems Programming - PA4: INDEXER?  i barely know'er
+
+
+All of the following testcases are explained in detail in the readme.pdf file.
+
+TESTING01
+	INPUT:
+		$ ./index output.txt testing01
+	EXPECTED OUT:
+		Inverted-index file successfully written to output.txt
+
+
+TESTING02
+	INPUT:
+		$ ./index output.txt testing02
+	EXPECTED OUT:
+		The requested output file name is already in use.
+		Overwrite? (y/n)
+		y
+		Inverted-index file successfully written to output.txt
+
+
+TESTING03
+	INPUT:
+		$ ./index output.txt testing03
+	EXPECTED OUT:
+		The input does not contain any tokens to index.
+	
+
+TESTING04
+	INPUT:
+		$ ./index output.txt testing04
+	EXPECTED OUT:
+		The input does not contain any tokens to index.
+
+
+TESTING05
+	INPUT:
+		$ ./index output.txt testing05
+	EXPECTED OUT:
+		Inverted-index file successfully written to output.txt
+
+
+TESTING06
+	INPUT:
+		$ ./index output.txt testing06
+	EXPECTED OUT:
+		Inverted-index file successfully written to output.txt
+
+
+TESTING07
+	INPUT:
+		$ ./index output.txt svu.txt
+	EXPECTED OUT:
+		The input does not contain any tokens to index.
+
+
