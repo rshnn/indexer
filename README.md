@@ -6,6 +6,19 @@
 __Will not properly run on Windows machines due to sys/types.h__
 
 
+1. [Current Use](#current-use)
+1. [Data Structures](#data-structures)
+1. [Runtime Analysis](#runtime-analysis)
+1. [Testcase Analysis](#testcase-analysis)
+	1. [Testcase 1](#testcase-1): Directory sweeping
+	1. [Testcase 2](#testcase-2): Frequency counting
+	1. [Testcase 3](#testcase-3): Empty nested directories
+	1. [Testcase 4](#testcase-4): Empty text files
+	1. [Testcase 5](#testcase-5): Unfamiliar file types
+	1. [Testcase 6](#testcase-6): Regular large test
+	1. [Testcase 7](#testcase-7): Input is a text file
+
+
 # Current Use
 
 ```sh
@@ -48,34 +61,46 @@ Therefore, as the directory navigation and file parsing is as efficient as possi
 The following testcases (represented above) attempt  to  challenge  my  programs  functioanlity  in  a  slightly  different  way. Each testcase is a top directory denoted  by `testing0x`. 
 
 
-## TESTCASE 1: Directory sweeping 
+## TESTCASE 1
+
+__Directory sweeping__
 
 Testing01 contains 2 directories and 1 nested subdirectory  within  the  first.    There  are  text  files  at  all  levels  of  navigation  (high level, dir1/, dir1/dir2/, and dir3/ ).  This test case is largely  meant  to  test  my  programs  ability  to  recursively  sweep  directories and visit all files at all levels.   
 
  
-## TESTCASE 2: Frequency counting  
+## TESTCASE 2
+
+__Frequency counting__
 
 ![screenshot](images/token_order.png)
 
-Testing02 contains just two text files, each of which contain  some  duplicate  words. This  test  attempts  to  test  the  sorting  ability of the nested sortedNlists.  The image below shows the output  file  from  this  test. Tokens  are  properly  organized  alphabetically.    RecordLists  are  properly  organized  by  frequency  and  then  alphabetically  by  file  path.  This is further tested by the  following test cases as well.    
+Testing02 contains just two text files, each of which contain  some  duplicate  words. This  test  attempts  to test the  sorting  ability of the nested sortedNlists. The image below shows the output file from this test. Tokens are properly organized alphabetically.    RecordLists  are  properly organized by frequency and then alphabetically by file path. This is further tested by the following test cases as well.    
 
 
-## TESTCASE 3: Empty nested directories 
+## TESTCASE 3
+
+__Empty nested directories__
 
 This test case exercises the simple case in which there are no files with any tokens.  The  directories are properly swept.  When the TokenList structure is empty at time of file writing,  the program will safety exit with a short prompt claiming that there are no tokens to index. 
 
 
-## TESTCASE 4: Empty text files   
+## TESTCASE 4
+
+__Empty text files__
 
 This test case is similar to test case 3.  The high level file contains empty text files.  The  program will follow an execution, just as test case 3, and exit normally with a prompt saying  there are no tokens to index. 
 
 
-## TESTCASE 5: Unfamiliar file types  
+## TESTCASE 5
+
+__Unfamiliar file types__
 
 The high level directory contains one normal text file, name heyya.txt.  Additionally, it  contains a directory of two executable files.  The program will attempt to parse through these  files normally and detect any string of valid tokens.  The resulting output text file is as expected.    
 
 
-## TESTCASE 6: Regular large test  
+## TESTCASE 6
+
+__Regular large test__
 
 This test case is a large directory with many text files.  This test is meant to test the full  functionality of the program.  The following two images show the proper sorting of recordLists  by first frequency and then alphabetically by file name.   
 
@@ -84,7 +109,9 @@ This test case is a large directory with many text files.  This test is meant to
 ![screenshot](images/alpha_order.png)
 
 
-## TESTCASE 7: Input is a text file   
+## TESTCASE 7
+
+__Input is a text file__
 
 Lastly, this test case shows proper execution of my program when the input is a text file.   My program properly recognizes that the input is not a directory and will execute normally. 
 
