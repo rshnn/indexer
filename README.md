@@ -3,8 +3,7 @@
 	198:211   SYSTEMS PROGRAMMING
 	PA4:      INDEXER
 
-__Will not properly run on Windows machines due to sys/types.h__
-
+## Contents
 
 1. [Current Use](#current-use)
 1. [Data Structures](#data-structures)
@@ -20,6 +19,8 @@ __Will not properly run on Windows machines due to sys/types.h__
 
 
 # Current Use
+
+__Will not properly run on Windows machines due to sys/types.h__
 
 ```sh
 make 
