@@ -1,0 +1,6 @@
+# Ignore make files after making them
+index
+indexer.o
+libsl.a
+sorted-list.o
+tokenizer.o
