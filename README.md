@@ -24,8 +24,11 @@ __Will not properly run on Windows machines due to sys/types.h__
 
 ```sh
 make 
-./index outputfiles_doesntworkyet testing 
+./index outputfile.txt testing 
 ```
+Make will build and link library and object files necessary for the indexer. 
+The program is invoked with two arguments:  the output text file for the JSON to be written to and the directory/file to parse for tokens.
+
 
 My  implementation of the indexer utilizes the previous projects: `tokenizer` and `sortedNlist`. Modifications were made to these for use in this specific project. The source code for the indexer is specifically implemented within `indexer.c`. The `main()` function is also located  within this source file. Proper execution of my program is as follows:
 
